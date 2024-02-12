@@ -1,0 +1,34 @@
+use("platzi_store")
+
+db.products.drop() //elimna todo el documento
+
+db.products.insertMany([
+    {
+        _id:1,
+        name:"Monitor 27 Pulgadas",
+        price:100
+    },
+    {
+        _id:2,
+        name: "Teclado Inalambrico Wireless Razer M1550",
+        price:1000
+    },
+    {
+        _id:3,
+        name: "Razer Blade 15 Ultra Gaming",
+        price:109
+    },
+    {
+        _id:4,
+        name: "Mouse Logitech G502",
+        price:60
+    },
+    {
+        name: "Mouse Logitech G502",
+        price:60
+    },
+],{
+    ordered : false //si hay un problema de duplicidad continue con la inserccion
+})
+
+db.products.find()

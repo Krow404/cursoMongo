@@ -1,0 +1,39 @@
+use("sample_training")
+
+//SEt Valor de una propiedad
+db.zips.updateMany(
+    //query que tenga el id 2 
+    {city: 'CLEVELAND'},
+    //change => operators
+    {
+        $set:{
+           myAttr:"Hola"
+        }
+    }
+)
+
+//Rename una propiedad
+db.zips.updateMany(
+    //query que tenga el id 2 
+    {city: 'CLEVELAND'},
+    //change => operators
+    {
+        $rename:{
+           myAttr:"my_attr"
+        }
+    }
+)
+
+//quitar una propiedad
+db.zips.updateMany(
+    //query que tenga el id 2 
+    {city: 'CLEVELAND'},
+    //change => operators
+    {
+        $unset:{
+            my_attr:""
+        }
+    }
+)
+
+db.zips.find({city: "CLEVELAND"})

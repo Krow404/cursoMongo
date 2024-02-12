@@ -1,0 +1,33 @@
+use("sample_airbnb")
+
+//busqueda normal con querys
+/*db.listingsAndReviews.find({
+    amenities:"Wifi"
+},
+{
+    price:1,
+    amenities:1
+})
+*/
+
+
+db.listingsAndReviews.aggregate([
+    {   //find
+        $match: {
+        amenities:"Wifi"
+        }
+    },
+    {//project
+        $project: {
+          address:1,
+        }
+    },
+    {//agrupar
+        $group: {
+          _id: "$address.country",
+          count:{
+                $sum:1
+            }
+        }
+    }
+])

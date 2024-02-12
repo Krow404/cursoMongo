@@ -1,0 +1,25 @@
+use("platzi_store")
+
+//inserta elementos
+db.iot.insertOne({
+    "sensor": "A001",
+    "date": "2022-01-03",
+    "readings": [
+      11,
+      22,
+      33,
+      44
+    ]
+})
+
+//actualizar o no si ya esta creado
+db.iot.insertOne({
+        sensor:"A001",
+        date: "2022-01-04", 
+    }, { $push: {
+            readings: 5555
+        }
+    }, {
+        upsert: true //crea el documento si no existe
+    }
+)

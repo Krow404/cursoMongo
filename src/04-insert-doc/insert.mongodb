@@ -1,0 +1,12 @@
+use("platzi_store")
+
+db.products.insertOne({
+    _id:1,
+    name: "producto 1",
+    price:1000
+})
+db.products.insertOne({
+    _id:2,
+    name: "producto 2",
+    price:4000
+})

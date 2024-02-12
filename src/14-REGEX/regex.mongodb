@@ -1,0 +1,9 @@
+use("platzi_store")
+
+
+//encontrar la palabra line
+// 'i' para decirle que no importa mayusculas o minusculas
+// '$' que encuentre la palabra line al final
+// '^' que encuentre la palabra al inicio
+// 'm' multiline
+db.inventory.find({"item.description":{ $regex: /LINE$/im }})

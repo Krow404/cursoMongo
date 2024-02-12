@@ -1,0 +1,28 @@
+use("platzi_store")
+
+//operator mayor que 
+db.inventory.find({qty:{$gt:20}})
+/*operator mayor igual que */
+db.inventory.find({qty:{$gt:20}})
+
+//operator  menor que
+db.inventory.find({qty:{ $lt :15 }})
+
+//operator menor igual que 
+db.inventory.find( { qty: { $lte : 30 } })
+
+//Join
+
+db.inventory.find({qty:{$gte:20,$lte:25}})
+
+//join 2 
+db.inventory.find(
+    {
+        "item.code":{$ne : "123"}
+    },
+    {
+        qty:{
+            $gte:20,$lte:25
+        }
+    }
+)

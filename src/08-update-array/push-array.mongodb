@@ -1,0 +1,9 @@
+use("platzi_store")
+
+db.inventory.updateOne({_id:4},{
+    $push:{ //para agregar  a un array
+        tags:{
+            $each:["book","book"]//para agregar mas de un valor a un array
+        }
+    }
+})

@@ -1,0 +1,14 @@
+use("platzi_store")
+
+db.products.updateOne(
+    //query que tenga el id 2 
+    {_id: 2},
+    //change => operators
+    {
+        $inc:{
+            price:100
+        }
+    }
+)
+
+db.products.find()

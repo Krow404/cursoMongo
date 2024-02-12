@@ -1,0 +1,14 @@
+use("sample_training")
+
+db.zips.updateMany(
+    //query que tenga el id 2 
+    {city: 'CLEVELAND'},
+    //change => operators
+    {
+        $inc:{
+            pop:100
+        }
+    }
+)
+
+db.zips.find({city: "CLEVELAND"})

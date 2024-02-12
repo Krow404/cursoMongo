@@ -1,0 +1,28 @@
+use("sample_training")
+
+//db.trips.findOne({"start station location.type":"Point"})
+
+
+//saber cuantas personas eran CEO
+/*db.companies.find({
+        "relationships.0.person.first_name":"Mark"
+    },
+    {
+        name:1,
+        relationships:1
+    }
+)*/
+
+
+//saber cuantas personas tienen el nombre mark sin importar el puestop
+db.companies.find({
+        relationships:{
+            $elemMatch: {
+                "person.first_name":"Mark"
+            }
+        }
+    },{
+        name:1,
+        relationships: 1
+    }
+).count()

@@ -1,0 +1,5 @@
+use("platzi_store")
+
+db.products.deleteOne({_id:1}) //elimina un documento)
+db.products.deleteMany({price:100}) //elimina varios documentos que cumplan con la condicion
+db.products.drop() //elimina todos los documentos de la coleccion
